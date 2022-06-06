@@ -8,7 +8,7 @@ int main(int argc, char *argv[]){
     struct rusage start, end;
     getpid();
     getrusage(RUSAGE_SELF, &start);
-    int aux_c, aux_l;
+   
 
 
 
@@ -29,8 +29,7 @@ int main(int argc, char *argv[]){
         fscanf(file, "%s", magic_var);
         if(strcmp(magic_var,"P3") != 0) printf("Erro na variavel magica\n");
             fscanf(file, "%d %d", &largura, &altura);
-            aux_l = altura; 
-            aux_c = largura;
+            
             fscanf(file, "%d ", &max_range); 
             if((param.colunas > largura-2) || (param.linhas > altura - 2)){
                 printf("Erro, remocao invalida, tente um numero menor");
@@ -182,9 +181,7 @@ int main(int argc, char *argv[]){
     }
     //medição do tempo de execução e exporta para uma tabela
     getrusage(RUSAGE_SELF, &end);
-    FILE *tmp_csv;
-    tmp_csv = fopen("Temp_Exec_image_G_Remov_coluns.csv", "a");
-    fprintf(tmp_csv, "%.06f;%.06f;%d;%d\n", diffUserTime(&start, &end), diffSystemTime(&start, &end), aux_l-altura, aux_c-largura);
+   
 
     fclose(tmp_csv);
     return 0;
