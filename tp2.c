@@ -60,6 +60,11 @@ int main(int argc, char *argv[]){
                     largura--;
                     calculador_de_matriz_dinamica(altura, largura, matriz, param.operador);
                     param.linhas--;
+                    
+                     matriz = transpor_de_matriz_dinamica(altura, largura, matriz);
+                    aux_de_trans = altura;
+                    altura = largura;
+                    largura = aux_de_trans;
                 }
                 //caso seja melhor remover uma coluna
                 else{
